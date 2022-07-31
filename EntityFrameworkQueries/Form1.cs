@@ -58,8 +58,36 @@ namespace EntityFrameworkQueries
 
             MessageBox.Show(displayString.ToString());
         }
+
+        private void BtnMiscQueries_Click(object sender, EventArgs e)
+        {
+            using APContext dbContext = new();
+
+            // Check if a vendor exists in Washington
+            bool doesExist = (from v in dbContext.Vendors
+                             where v.VendorState == "WA"
+                             select v).Any();
+            
+            // Get number of invoices
+            int invoiceCoumt = (from invoice in dbContext.Invoices select invoice).Count();
+
+            
+            // Query a single vendor
+            Vendor singleVendor = (from v in dbContext.Vendors
+                          where v.VendorName == "IBM"
+                          select v).SingleOrDefault();
+            
+            if (singleVendor != null)
+            {
+                MessageBox.Show("IBM is in " + singleVendor.VendorCity);
+            }
+            else
+            {
+                MessageBox.Show("IBM is not in the database.");
+            }
+        }
     }
-    
+
     class VendorLocation {
         public string VendorName { get; set; }
         public string VendorState { get; set; }
