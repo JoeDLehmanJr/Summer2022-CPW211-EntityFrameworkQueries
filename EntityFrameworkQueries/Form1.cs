@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace EntityFrameworkQueries
 {
     public partial class Form1 : Form
@@ -34,5 +36,33 @@ namespace EntityFrameworkQueries
                                         select v).ToList();
 
         }
+
+        private void BtnSelectSpecificColumns_Click(object sender, EventArgs e)
+        {
+            using APContext dbContext = new();
+
+            // Anonymous type
+            List<VendorLocation> results = (from v in dbContext.Vendors
+                          select new VendorLocation
+                          {
+                              VendorName = v.VendorName,
+                              VendorState = v.VendorState,
+                              VendorCity = v.VendorCity
+                          }).ToList();
+            
+            StringBuilder displayString = new();
+            foreach (VendorLocation vendor in results)
+            {
+                displayString.AppendLine($"{vendor.VendorName} is in {vendor.VendorCity}." );
+            }
+
+            MessageBox.Show(displayString.ToString());
+        }
+    }
+    
+    class VendorLocation {
+        public string VendorName { get; set; }
+        public string VendorState { get; set; }
+        public string VendorCity { get; set; }
     }
 }
