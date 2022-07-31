@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.BtnSelectAllVendars = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnAllCaliVendors = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,14 +43,15 @@
             this.BtnSelectAllVendars.UseVisualStyleBackColor = true;
             this.BtnSelectAllVendars.Click += new System.EventHandler(this.BtnSelectAllVendars_Click);
             // 
-            // button2
+            // BtnAllCaliVendors
             // 
-            this.button2.Location = new System.Drawing.Point(27, 112);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnAllCaliVendors.Location = new System.Drawing.Point(27, 112);
+            this.BtnAllCaliVendors.Name = "BtnAllCaliVendors";
+            this.BtnAllCaliVendors.Size = new System.Drawing.Size(549, 23);
+            this.BtnAllCaliVendors.TabIndex = 1;
+            this.BtnAllCaliVendors.Text = "Select From Vendors Where VendorState = \'CA\' OrderBy VendorName ASC";
+            this.BtnAllCaliVendors.UseVisualStyleBackColor = true;
+            this.BtnAllCaliVendors.Click += new System.EventHandler(this.BtnAllCaliVendors_Click);
             // 
             // button3
             // 
@@ -67,7 +68,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnAllCaliVendors);
             this.Controls.Add(this.BtnSelectAllVendars);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -78,7 +79,7 @@
         #endregion
 
         private Button BtnSelectAllVendars;
-        private Button button2;
+        private Button BtnAllCaliVendors;
         private Button button3;
     }
 }
