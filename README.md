@@ -3,7 +3,7 @@
 ## Getting Started
 - Visual Studio 2022
 - .NET 6
-- AP database installed
+- [AP database](create_ap.sql) installed
 
 
 You may need to change the DB connection string located in the APContext class.
